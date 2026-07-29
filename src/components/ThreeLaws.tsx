@@ -18,7 +18,12 @@ const LAWS = [
 
 export default function ThreeLaws() {
   return (
-    <section style={{ background: "#080A0C", padding: "110px 40px" }}>
+    <section
+      style={{
+        background: "#080A0C",
+        padding: "clamp(64px,14vw,110px) clamp(20px,6vw,40px)",
+      }}
+    >
       <div
         style={{
           maxWidth: 1180,
@@ -70,7 +75,7 @@ export default function ThreeLaws() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, minmax(0,1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
             gap: 1,
             background: "#1A1C1F",
           }}
@@ -81,7 +86,7 @@ export default function ThreeLaws() {
               className="atr-law-card"
               style={{
                 background: "#111214",
-                padding: "40px 32px",
+                padding: "clamp(28px,6vw,40px) clamp(22px,5vw,32px)",
                 display: "flex",
                 flexDirection: "column",
                 gap: 16,
