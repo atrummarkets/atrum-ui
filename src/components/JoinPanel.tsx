@@ -65,7 +65,7 @@ export default function JoinPanel() {
     const shareHref =
       "https://twitter.com/intent/tweet?text=" +
       encodeURIComponent(
-        "I've joined the waitlist for @Atrum.\n\nPrivate prediction markets are coming.\n\n" +
+        "I've joined the waitlist for @AtrumMarkets.\n\nPrivate prediction markets are coming.\n\n" +
           inviteLink
       );
     const inviteW = Math.round((result.invitesUsed / 3) * 100) + "%";
