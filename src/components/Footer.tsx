@@ -24,7 +24,7 @@ export default function Footer() {
       <img
         src="/uploads/IMG_0991.PNG"
         alt="ATRUM"
-        style={{ height: 18, width: "auto", objectFit: "contain" }}
+        style={{ height: 52, width: "auto", objectFit: "contain" }}
       />
       <div style={{ display: "flex", gap: 26 }}>
         <a href="#join" style={{ color: "#6E7276" }}>

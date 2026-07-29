@@ -1,21 +1,12 @@
 "use client";
 
-import { useCountdown } from "@/lib/useCountdown";
 import JoinPanel from "./JoinPanel";
 import LiveFeed from "./LiveFeed";
 import Ticker from "./Ticker";
 
 type FeedRow = { who: string; what: string; createdAt: string };
 
-export default function Hero({
-  launchDateIso,
-  initialFeed,
-}: {
-  launchDateIso: string;
-  initialFeed: FeedRow[];
-}) {
-  const targetMs = new Date(launchDateIso).getTime();
-  const { d, h, m, s } = useCountdown(targetMs);
+export default function Hero({ initialFeed }: { initialFeed: FeedRow[] }) {
 
   return (
     <section
@@ -108,7 +99,7 @@ export default function Hero({
           <img
             src="/uploads/IMG_0991.PNG"
             alt="ATRUM"
-            style={{ height: 22, width: "auto", objectFit: "contain" }}
+            style={{ height: 72, width: "auto", objectFit: "contain" }}
           />
         </div>
         <div
@@ -207,68 +198,17 @@ export default function Hero({
 
         <div
           style={{
-            display: "flex",
-            alignItems: "flex-end",
-            gap: 22,
+            fontFamily: "var(--font-barlow-condensed)",
+            fontWeight: 600,
+            fontSize: 38,
+            lineHeight: 1,
+            letterSpacing: ".04em",
+            textTransform: "uppercase",
+            color: "#FFF5D8",
             animation: "atr-rise 1.4s ease .4s both",
           }}
         >
-          {[
-            { v: d, label: "DAYS" },
-            null,
-            { v: h, label: "HRS" },
-            null,
-            { v: m, label: "MIN" },
-            null,
-            { v: s, label: "SEC", accent: true },
-          ].map((unit, i) =>
-            unit === null ? (
-              <span
-                key={i}
-                style={{
-                  fontFamily: "var(--font-barlow-condensed)",
-                  fontSize: 30,
-                  color: "#3F4043",
-                  lineHeight: 1.3,
-                }}
-              >
-                /
-              </span>
-            ) : (
-              <div
-                key={i}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: 6,
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "var(--font-barlow-condensed)",
-                    fontWeight: 600,
-                    fontSize: 38,
-                    lineHeight: 1,
-                    color: unit.accent ? "#FFF5D8" : "#F7F2E8",
-                  }}
-                >
-                  {unit.v}
-                </span>
-                <span
-                  style={{
-                    fontFamily: "var(--font-manrope)",
-                    fontWeight: 500,
-                    fontSize: 9,
-                    letterSpacing: ".24em",
-                    color: "#6E7276",
-                  }}
-                >
-                  {unit.label}
-                </span>
-              </div>
-            )
-          )}
+          Coming soon
         </div>
 
         <div

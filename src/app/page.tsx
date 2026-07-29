@@ -7,7 +7,6 @@ import { getRecentFeed, getWaitlistStats } from "@/lib/waitlist";
 
 export const dynamic = "force-dynamic";
 
-const LAUNCH_DATE = process.env.LAUNCH_DATE ?? "2026-09-19T20:00:00Z";
 const BASE_COUNT = Number(process.env.WAITLIST_BASE_COUNT ?? 0);
 
 export default async function Home() {
@@ -33,7 +32,7 @@ export default async function Home() {
       }}
     >
       <BootOverlay />
-      <Hero launchDateIso={LAUNCH_DATE} initialFeed={feed} />
+      <Hero initialFeed={feed} />
       <ThreeLaws />
       <CtaBanner countLabel={stats.displayCount.toLocaleString("en-US")} />
       <Footer />
