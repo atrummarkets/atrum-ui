@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Syne, Barlow_Condensed, Manrope, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const syne = Syne({
@@ -26,9 +27,33 @@ const geistMono = Geist_Mono({
   weight: ["300", "400", "500"],
 });
 
+const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "atrum.fun";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(`https://${SITE_ORIGIN}`),
   title: "ATRUM — Private Prediction Markets",
   description: "Wager in silence. No visible book, no name on the ledger, no crowd to copy you.",
+  openGraph: {
+    title: "ATRUM — Private Prediction Markets",
+    description: "Wager in silence. No visible book, no name on the ledger, no crowd to copy you.",
+    url: `https://${SITE_ORIGIN}`,
+    siteName: "ATRUM",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ATRUM — Private Prediction Markets",
+    description: "Wager in silence. No visible book, no name on the ledger, no crowd to copy you.",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
+  },
 };
 
 export default function RootLayout({
@@ -41,7 +66,10 @@ export default function RootLayout({
       lang="en"
       className={`${syne.variable} ${barlowCondensed.variable} ${manrope.variable} ${geistMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
