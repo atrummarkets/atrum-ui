@@ -1,49 +1,150 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
-}
-
 html,
 body {
+  margin: 0;
+  padding: 0;
+  background: #080a0c;
   max-width: 100vw;
   overflow-x: hidden;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #ece7da;
+  color: #080a0c;
+}
+
 body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: #ece7da;
+  font-family: var(--font-manrope), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
 a {
-  color: inherit;
+  color: #ece7da;
   text-decoration: none;
 }
+a:hover {
+  color: #f7f2e8;
+}
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+input {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+input::placeholder {
+  color: #5a5d61;
+}
+
+button {
+  font-family: inherit;
+}
+
+@keyframes atr-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes atr-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+@keyframes atr-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes atr-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes atr-drift {
+  0% {
+    transform: scale(1.04);
+  }
+  50% {
+    transform: scale(1.11);
+  }
+  100% {
+    transform: scale(1.04);
+  }
+}
+@keyframes atr-halo {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.46;
+    transform: scale(1.05);
+  }
+}
+@keyframes atr-mark {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes atr-scan {
+  0% {
+    transform: translateY(-120%);
+  }
+  100% {
+    transform: translateY(2200%);
+  }
+}
+.atr-law-card:hover {
+  background: #16181b;
+}
+.atr-btn-primary:hover {
+  box-shadow: 0 0 34px rgba(255, 245, 216, 0.34);
+}
+.atr-btn-outline:hover {
+  border-color: #8e9296;
+  background: rgba(236, 231, 218, 0.06);
+}
+.atr-input:focus {
+  border-color: #8e9296;
+  box-shadow: 0 0 0 3px rgba(255, 245, 216, 0.07);
+}
+.atr-cta-link:hover {
+  box-shadow: 0 0 40px rgba(255, 245, 216, 0.34);
+  color: #080a0c;
+}
+
+@keyframes atr-feed {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
